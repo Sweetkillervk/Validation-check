@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    :root {
+      font-size: 125%;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      color: #224;
+      background:
+        url(https://i.ibb.co/Qjt7TJn/milad-fakurian-E8-Ufcyxz514-unsplash-1.jpg) center / cover no-repeat fixed;
+    }
+
+    .site-container {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      padding: 1.5em;
+    }
+
+    .card {
+      max-width: 400px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(15px);
+      user-select: none;
+    }
+
+    .login-title {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      font-size: 0.9em;
+      margin-bottom: 5px;
+      display: block;
+      color: #34495e;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #34ace0, #706fd3);
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .login-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hidden animated button */
+    .animated-button {
+      display: none;
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #1e90ff, #ff6347);
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transform: perspective(1px) translateZ(0);
+      transition: all 0.3s ease-out;
+      cursor: pointer;
+    }
+
+    .animated-button.show {
+      display: block;
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .animated-button:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .animated-button:active {
+      transform: translateY(2px) scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+
+<body oncontextmenu="return false">
+  <div class="site-container">
+    <div class="card">
+      <div class="login-title">Login to Smart KYP</div>
+      <form id="loginForm" onsubmit="return handleLogin(event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+      </form>
+      <!-- Animated button that appears after login -->
+      <a href="https://www.instagram.com/my_heart_beat_2023/profilecard/?igsh=eGR1dzFhcDlnY2E3"><button id="welcomeButton" class="animated-button">welcome smart kyp 💻</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Hide the welcome button initially
+    const welcomeButton = document.getElementById('welcomeButton');
+    const loginForm = document.getElementById('loginForm');
+
+    // Handle login form submission
+    function handleLogin(event) {
+      event.preventDefault();
+
+      // Simulate successful login (You can replace this with actual validation)
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (name && email && password) {
+        // Hide the login form and show the animated button after successful login
+        loginForm.style.display = 'none';
+        welcomeButton.classList.add('show');
+      }
+    }
+  </script>
+</body>
+<script src="login.js"></script>
+
+</html>
